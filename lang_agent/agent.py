@@ -1,9 +1,9 @@
-from google.adk.agents.llm_agent import Agent
+from google.adk.agents.llm_agent import LlmAgent
 from lang_agent.prompts import ROOT_AGENT_PROMPT
 from lang_agent.sub_agents.quiz.agent import quiz_agent
 from lang_agent.sub_agents.review.agent import review_agent
 
-root_agent = Agent(
+root_agent = LlmAgent(
     model='gemini-2.5-flash-lite',
     name='root_agent',
     description="An orchestration agent which routes the student's request to the relevant agent.",
@@ -14,8 +14,5 @@ root_agent = Agent(
     ]
 )
 
-# 0. Update `save_answers` tool to update state with answers *
-#   - Validate if agent is generating all questions at once, or one at a time (at once is preferable: less API calls) *
-# 1. Get review agent working
-#   - A
-#   - B
+# 1. Implement review agent as tool on root agent. Instruct root agent to call it.
+# 2. Refactor review agent to return structured output from 

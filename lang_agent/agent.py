@@ -1,4 +1,5 @@
 from google.adk.agents.llm_agent import LlmAgent
+from google.adk.tools.agent_tool import AgentTool
 from lang_agent.prompts import ROOT_AGENT_PROMPT
 from lang_agent.sub_agents.quiz.agent import quiz_agent
 from lang_agent.sub_agents.review.agent import review_agent
@@ -10,9 +11,10 @@ root_agent = LlmAgent(
     instruction=ROOT_AGENT_PROMPT,
     sub_agents=[
         quiz_agent,
-        review_agent,
+    ],
+    tools=[
+        AgentTool(review_agent)
     ]
 )
 
-# 1. Implement review agent as tool on root agent. Instruct root agent to call it.
-# 2. Refactor review agent to return structured output from 
+# TODO: Implement sequential agent - review (structured output) -> update persistent mistake log

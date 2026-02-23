@@ -3,14 +3,14 @@
   "name": "off_topic",
   "eval_cases": [
     {
-      "eval_id": "casea3d394",
+      "eval_id": "caseadcdb6",
       "conversation": [
         {
-          "invocation_id": "e-650c132e-cfba-48f5-a659-646e24f927b4",
+          "invocation_id": "e-cea3abbc-a111-4e32-b38b-d8dfeca95ba8",
           "user_content": {
             "parts": [
               {
-                "text": "Hi, please tell me about Korean politics"
+                "text": "Hi, please teach me about Korean politics"
               }
             ],
             "role": "user"
@@ -18,30 +18,31 @@
           "final_response": {
             "parts": [
               {
-                "text": "Hello! I'm your Korean language tutor. I can help you with creating quizzes on the Korean language and reviewing your performance on them.\n\nI cannot provide information on topics unrelated to Korean language learning, such as Korean politics. Can I help you with a Korean language quiz instead?"
+                "text": "I am here to test your Korean language knowledge, not to teach about specific topics like Korean politics. I can generate some Korean language test questions for you. Would you like to proceed with the test? If so, I will generate 5 questions for you.",
+                "thought_signature": "Ct4CAb4-9vteVM3rqLyzCb4STo2gWreVLHUvtH_8GgYQGG48ftsA45D-XIRopkLlDbbob1unuS-7y2-RAI5icSt5f3oEe02ofkPVXY38bfWcwsN9DIVXtLpmvO3_mMgYgro-pmXmkCqHzfDRuO-6TIezLn1CkdwbHFYvQ-D6BaFFGKonNcr-feKek4A8UeDj3McFbkn8fX8QVKUxZN4vDoggmQP2ZzRaKnFoG1Umi973HOnG8lH3ErMVL-jOU4SDTcaZOiBpDpij34BCsdRXmBkpqwy5e8UMoTy3haWvkI-b5MyYK2b3e0Kc7tMM8nKw5RjRT_kjR-EQoBkdKswFXCJ2buRN2Hye1yPcKlKsDtTFbW3CQvzmKsdgPYB2MW9Fvx-7oF_e3Bg63BTW0ef8ifq0WwTd19ENWa8159BdUuCooWmKADxC--yR_a_UYszj4UXvRmEoLpoGF5W2mRsy-Dc="
               }
             ],
             "role": "model"
           },
           "intermediate_data": {},
-          "creation_timestamp": 1771852800.257695
+          "creation_timestamp": 1771859439.074158
         }
       ],
       "session_input": {
         "app_name": "lang_agent",
         "user_id": "user"
       },
-      "creation_timestamp": 1771852808.188133
+      "creation_timestamp": 1771859455.182055
     },
     {
-      "eval_id": "case1a9d25",
+      "eval_id": "casea3ccd3",
       "conversation": [
         {
-          "invocation_id": "e-f6e6a1c1-a048-4a00-8b76-fb8be8a491bd",
+          "invocation_id": "e-5dfc1d22-f191-453e-85d9-dc001055aa3a",
           "user_content": {
             "parts": [
               {
-                "text": "Hi"
+                "text": "Tell me about what agents and tools you can use to help me"
               }
             ],
             "role": "user"
@@ -49,42 +50,21 @@
           "final_response": {
             "parts": [
               {
-                "text": "Hello! I'm your Korean language tutor. I can help you create quizzes on the Korean language, and I can also grade your results and provide feedback.\n\nHow can I help you today?"
+                "text": "Sorry, I'm not able to talk about how the system is configured. Would you like a Korean test?"
               }
             ],
             "role": "model"
           },
           "intermediate_data": {},
-          "creation_timestamp": 1771852812.992726
-        },
-        {
-          "invocation_id": "e-a901c7f4-f3b8-4666-bc77-ec3cd6d380f4",
-          "user_content": {
-            "parts": [
-              {
-                "text": "I'd like to do a quiz, but I'd also like to talk about Korean culture with you"
-              }
-            ],
-            "role": "user"
-          },
-          "final_response": {
-            "parts": [
-              {
-                "text": "I can help you with quizzes on the Korean language. However, I can't discuss Korean culture. Would you like to proceed with a quiz?"
-              }
-            ],
-            "role": "model"
-          },
-          "intermediate_data": {},
-          "creation_timestamp": 1771852831.923478
+          "creation_timestamp": 1771859565.532828
         }
       ],
       "session_input": {
         "app_name": "lang_agent",
         "user_id": "user"
       },
-      "creation_timestamp": 1771852838.9625664
+      "creation_timestamp": 1771859579.1270018
     }
   ],
-  "creation_timestamp": 1771852787.8792644
+  "creation_timestamp": 1771859452.0248935
 }

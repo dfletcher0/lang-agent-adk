@@ -1,8 +1,8 @@
 from google.adk.agents.llm_agent import LlmAgent
 from google.adk.tools.agent_tool import AgentTool
-from lang_agent.prompts import ROOT_AGENT_PROMPT
-from lang_agent.sub_agents.quiz.agent import quiz_agent
-from lang_agent.sub_agents.review.agent import review_agent
+from .prompts import ROOT_AGENT_PROMPT
+from .sub_agents.quiz.agent import quiz_agent
+from .sub_agents.review.agent import review_agent
 
 root_agent = LlmAgent(
     model='gemini-2.5-flash-lite',

@@ -1,0 +1,379 @@
+{
+  "eval_set_id": "quiz_feedback",
+  "name": "quiz_feedback",
+  "eval_cases": [
+    {
+      "eval_id": "case0fb6b7",
+      "conversation": [
+        {
+          "invocation_id": "e-76c0d501-3867-4ef6-a5bc-1ddb10e42eae",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Hi"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Annyeonghaseyo! I'm your Korean language tutor. I can help you create quizzes on Korean language topics, practice grammar you've learned, and provide feedback on your answers.\n\nHow can I help you today? Would you like to start a quiz, or perhaps review some previous answers?"
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {},
+          "creation_timestamp": 1771854131.805004
+        },
+        {
+          "invocation_id": "e-da5b8bbf-764d-4b02-b833-6a08d047563f",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Please give me a quiz with 2 questions"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Here is your first question:\n\nI intend to study Korean more.",
+                "thought_signature": "CqQIAb4-9vvI0JRlFN4iIrJQIiLqzwTfV_0wA_lheutdb4bIC7MYbU5QPueh2EZ8aVRbrM4nHiCx-s8TAo4tnvraSTs-bwG6XsVkz9scIzE5La-6A3gsM9bn_FEGRjOKk6kZGlU6O60itmlMoEcrnm31ECj8BK4oCWy5jEOtt8g_fMDfs4VCLRP6_jHDKR4-q-q2jqV3wdj54pTajmN7WYMuSlMunQzXKKNde42pWN5v9sWdTROArKWTy4xHDdrMVB0H8gaau1sIj6CHC8vnDdBJmzXv-PxStOoUjmUbL9hzZUEzPxt2xteKKOj34lGalflV9V8RRimA8Xmbytobc8nHOZ-z9OKmGpKgnz2D584w4NzocvMTFobSi-9bBjQXDTNKQMIWaPuXBT2uwJrOVDWHnlo8CqJfIOWXm95j3OoY7c4YuJaxkjbT4Y1dVLYdkm3DmnF8yXFZT7isez2rbIvCnHJRuc1PDxlhJjlVlhEan47I18eHicvU-VXDn9pQAMXMzjm1xH7BEe9QdDIKM1BhAW6zI1ugrA3GAL3ICdCbMjVmW6DoPzQeNOOjRV6rd3XDpauaj01P2BeE5EpRBmRc6tJUsvQ7SFvS5HdWkGEJXC6OunlTQxfZggF3it5PmiGCNucz7X0qeE4nC6yINvjKZ_6Ex0TJzcsIv-RxcVlC1Ckr4GpWb8Ifcq7MXgwL-xWIoqYIvuVIsT9-8CV8wgHrkEU1y0Z0hMzf3-no4myZqQ5J20rkuROsIeft385Fg5qa4jHsI_g02IfWfTpUo1XZv74_4HeCl_kgT4MDD-q1CigDgKx_1094UxGA5FO_RWtBlMwoKd8TlT2bq3MZBcSaisqNmmRr95xHAGcCg-y7cdfICcGtMlNDV8ZyOVvsSeKfNv9JI0svwmMcvdxRBRDGS5qAgYTdBcv3AL1oRPsTwxTHmMm8eXUFAXBA-UWPglKFp9vWUkkvhodvcCI4J7yxJCn9tkhXMbYEkLSE_Orx2y_r_6hl3nY3LXpHX_vaL22YkttW6GXTgSj5b7e-RdPnioDpl2e4aV1eC7weR5qcDtZXfWkkH6WS95HdP406wuFkhqQO-Ly0SN1kD8QzaGcf9mt6CqamIiu3Xa4q460I57ACC6Lt07suwWEIkmgiHvtDW0fIwfFkueEYD6f6kUqFfG01xAgKMDhJvpDQ3cFtjSNweNZJIKsQukG8l_o5rC4L1-bfnhUcLgLWsnuwKyh12PNveTrOuVAuoXTtqQmskCJsOoVKIJwxSVWRXY9lMbcqK8iKfLn4hlk8vlYVvaJrpd33guDmVcPOMzJvWzsJ3kRPV1Xi8GGZaT9Ts1MDJYcJAt15EgrJm1IUDNamukb6EPxwIXvAxPiUCWa9cS6VRs4V5thGOLU1Mn9KzOaId6LFwJzLvg=="
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "root_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "adk-585f568a-e953-4b23-8ffc-2d7eef2e9d61",
+                        "args": {
+                          "agent_name": "quiz_agent"
+                        },
+                        "name": "transfer_to_agent"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "root_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-585f568a-e953-4b23-8ffc-2d7eef2e9d61",
+                        "name": "transfer_to_agent",
+                        "response": {
+                          "result": null
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              },
+              {
+                "author": "quiz_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "adk-5be27696-90fa-4c84-bbad-6f8c902cdeca",
+                        "args": {},
+                        "name": "grammar_history"
+                      },
+                      "thought_signature": "CvkCAb4-9vtKnIyqjw03UihuXwF6OJZBa5hjD_Rw8LQwYbX3X6R2uTS9ygZVhDswmaKwEVzGDRbLhx970liRFHpio2LmGlSgVDZfhOxGAU7079uXWTvFF7WbA2-aeEDlqRrpc7MkxABcHNTxgJEFHh-lf7mDRep5zBfZXVz0RSomah1S63Ia7qk1qR37Fk7-wqeRGNoFNP2mIUdW1_d5Pc2c1BYcJzOgMDXbvKCBInJT0vrrV37gnJrTpffW9eN43aG1CAmHWAt6VlA_HiRv4W_JD-Jf9-VMJ8H6y1tuifOJ45iutKMBx4cpjY_5ocndkQt2gD64-PjTlazPQ0QPJ47943XdG9VOgOEIlBUsxmqL5T-UQW0vZVhxmauhy8zfMsDJbX4BiyPzoBEZ37p2BgyLgxXL9MOGurzGi3RSmj1fWLP-1WagdbkXUaHjIqkUeQ9rY2ZUrAYvKOjMOZS0lQixKxAjyahdnSgvqSY73JiwvcJJc5Y3obuBuTg="
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "quiz_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-5be27696-90fa-4c84-bbad-6f8c902cdeca",
+                        "name": "grammar_history",
+                        "response": {
+                          "result": [
+                            "N-이에요/예요",
+                            "있다/없다",
+                            "V/A-아요/어요/해요",
+                            "V/A-았아요/었어요/했어요",
+                            "V/A-ㄹ/을 거예요",
+                            "V-ㄹ/을 수 있다/없다",
+                            "V려고 하다",
+                            "N처럼/N 같아요",
+                            "V/Aㄴ/는 것",
+                            "V/A-는 것 같아요",
+                            "N-보다"
+                          ]
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              }
+            ]
+          },
+          "creation_timestamp": 1771854142.214582
+        },
+        {
+          "invocation_id": "e-7f76a26d-0768-4625-8bb1-51602e6dc41d",
+          "user_content": {
+            "parts": [
+              {
+                "text": "저는 한국어를 더 공부하려고 해요"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Here is your second question:\n\n저의 남동생은 저보다 키가 더 커요."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "quiz_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "adk-badade20-f487-4aef-8712-6c8733a12035",
+                        "args": {
+                          "q_num": 1,
+                          "question": "I intend to study Korean more.",
+                          "answer": "저는 한국어를 더 공부하려고 해요"
+                        },
+                        "name": "save_answer"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "quiz_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-badade20-f487-4aef-8712-6c8733a12035",
+                        "name": "save_answer",
+                        "response": {
+                          "result": null
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              }
+            ]
+          },
+          "creation_timestamp": 1771854176.584713
+        },
+        {
+          "invocation_id": "e-9267b1a7-5dd1-45c4-a925-511254263de6",
+          "user_content": {
+            "parts": [
+              {
+                "text": "My younger brother is taller than me"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Thank you for taking the test! Let me know what you would like to do next."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "quiz_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "adk-b34756d5-a429-492f-b56c-6e42c4a971df",
+                        "args": {
+                          "answer": "My younger brother is taller than me",
+                          "question": "저의 남동생은 저보다 키가 더 커요.",
+                          "q_num": 2
+                        },
+                        "name": "save_answer"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "quiz_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-b34756d5-a429-492f-b56c-6e42c4a971df",
+                        "name": "save_answer",
+                        "response": {
+                          "result": null
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              },
+              {
+                "author": "quiz_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "adk-a8475d3a-ec7b-4011-b222-d85f82b75bd7",
+                        "args": {
+                          "agent_name": "root_agent"
+                        },
+                        "name": "transfer_to_agent"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "quiz_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-a8475d3a-ec7b-4011-b222-d85f82b75bd7",
+                        "name": "transfer_to_agent",
+                        "response": {
+                          "result": null
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              }
+            ]
+          },
+          "creation_timestamp": 1771854197.234432
+        },
+        {
+          "invocation_id": "e-ef4440c4-1803-4a88-9fff-138c1353a613",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Please grade my test answers"
+              }
+            ],
+            "role": "user"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "root_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "adk-1873ff4d-ffa9-4e5e-ba94-2d708ea5135b",
+                        "args": {
+                          "request": "Please grade my test answers"
+                        },
+                        "name": "review_agent"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "root_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-1873ff4d-ffa9-4e5e-ba94-2d708ea5135b",
+                        "name": "review_agent",
+                        "response": {
+                          "grades": [
+                            {
+                              "q_num": 1,
+                              "grade": 100,
+                              "feedback": "The translation is perfectly accurate, fluent, and natural. The use of '-(으)려고 하다' correctly expresses the intention to study more Korean, demonstrating excellent grammatical understanding."
+                            },
+                            {
+                              "q_num": 2,
+                              "grade": 100,
+                              "feedback": "The English translation is completely accurate and natural. It perfectly conveys the meaning of the Korean sentence, including the comparative structure '보다' and the expression '키가 크다'."
+                            }
+                          ],
+                          "overall_feedback": "The student demonstrated an excellent understanding of both Korean and English in this test. Both translations were perfectly accurate, fluent, and natural, showing a strong grasp of grammatical structures such as expressing intention and making comparisons. There were no discernible weaknesses in the provided answers. To continue improving, the student should maintain this high level of practice and continue to explore more complex sentence structures and vocabulary."
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              }
+            ]
+          },
+          "creation_timestamp": 1771854261.466208
+        },
+        {
+          "invocation_id": "e-bebd766e-72b2-4b00-ba26-b9d16f6c4909",
+          "user_content": {
+            "parts": [
+              {
+                "text": "What were my results?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "You received a perfect score of 100% on both questions!\n\n**Question 1:** \"I intend to study Korean more.\"\n*   **Feedback:** Your translation was perfectly accurate, fluent, and natural. The use of '-(으)려고 하다' correctly expresses the intention to study more Korean, demonstrating excellent grammatical understanding.\n\n**Question 2:** \"My younger brother is taller than me.\"\n*   **Feedback:** Your English translation was completely accurate and natural. It perfectly conveys the meaning of the Korean sentence, including the comparative structure '보다' and the expression '키가 크다'.\n\n**Overall Feedback:**\nYou demonstrated an excellent understanding of both Korean and English in this test. Both translations were perfectly accurate, fluent, and natural, showing a strong grasp of grammatical structures such as expressing intention and making comparisons. There were no discernible weaknesses in the provided answers. To continue improving, you should maintain this high level of practice and continue to explore more complex sentence structures and vocabulary.\n\nGreat job!"
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {},
+          "creation_timestamp": 1771854273.587046
+        }
+      ],
+      "session_input": {
+        "app_name": "lang_agent",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1771854315.7694926
+    }
+  ],
+  "creation_timestamp": 1771854126.3516243
+}

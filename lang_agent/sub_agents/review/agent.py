@@ -1,6 +1,6 @@
 from google.adk.agents import LlmAgent
 from google.genai import types
-from lang_agent.sub_agents.review.prompts import REVIEW_AGENT_PROMPT
+from .prompts import REVIEW_AGENT_PROMPT
 # from lang_agent.sub_agents.review.tools import get_answers, grade_answers
 from pydantic import BaseModel, Field
 # from lang_agent.sub_agents.review.tools import grammar_history, save_answer, vocab_search

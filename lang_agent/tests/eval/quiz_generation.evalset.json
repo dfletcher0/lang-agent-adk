@@ -1,0 +1,275 @@
+{
+  "eval_set_id": "quiz_generation",
+  "name": "quiz_generation",
+  "eval_cases": [
+    {
+      "eval_id": "casedbf114",
+      "conversation": [
+        {
+          "invocation_id": "e-75e0dc07-ee8a-4c76-bee4-0e2b448bdd52",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Hi"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Hello! I'm your Korean language tutor. I can help you with:\n\n1.  **Creating quizzes:** I can generate Korean language quizzes based on your preferred length and topics, and the grammar you've learned.\n2.  **Reviewing quiz results:** I can grade your quizzes and provide feedback on your performance.\n\nHow can I help you with your Korean studies today?"
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {},
+          "creation_timestamp": 1771852599.145464
+        },
+        {
+          "invocation_id": "e-78b3c7d7-c75b-4576-a9c1-89a1c96817fc",
+          "user_content": {
+            "parts": [
+              {
+                "text": "I'd like a quiz with 3 questions, on the topic of fishing"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Here is your first question:\n\n낚시 fishing"
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "root_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "adk-339687cf-bd7d-43d9-9b7a-d585de881886",
+                        "args": {
+                          "agent_name": "quiz_agent"
+                        },
+                        "name": "transfer_to_agent"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "root_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-339687cf-bd7d-43d9-9b7a-d585de881886",
+                        "name": "transfer_to_agent",
+                        "response": {
+                          "result": null
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              },
+              {
+                "author": "quiz_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "adk-ee1d1969-4efc-4ff6-aeaf-e2b0ab1e7ec9",
+                        "args": {},
+                        "name": "grammar_history"
+                      },
+                      "thought_signature": "Ct8DAb4-9vvyYuSc2mBvRY9x8PK58x65OepahZKyxQD0LFu7Vp-XpoCAo3wQq_mujFmCCAgfHxSuYzdWZoujXociT2OLSLG6lUmzIJMKBc_VGtPYyqDrC4_zIZ-6Il6gjkXP5qoy3we053BDYqtne3vvmeoBbgBstK0zNgPazsyYAocDE46RDU2awQUPj4tKhhkfywFuAs-cX9jX9FHJ-1Co62IR0uPmQGKvoQYZPE2xaVS800Q_3Hfebojsu850mwUd-nBrsZzCOVzzeti0oRlrNEZRV89YihzkYP5Wpd0yY_VRoIQ-cXG-pmJ83V5Zxri2zpjHss4pIhAE9YVprVW6N4gBgrsWh0iayaX7x259ivHk_tjWbS0opbk_Za5NyZg76DL4M-5XLn_T6Crc6UFeN6wEd33Wf-EyBOl2Hh92f-Bx9mvT5W8tFANf6upBEewWHsuD5IptjCXOE9eEpjOuU2r3Xr3GjZiL-NrOM-YZbepGMhR_ZfVUV0Gp98-81zY08--wlhDHvsj-O09keNszekLP9seqBlytdkdQ28kOeaSdJGlBY3op4dJtsKRHBzbeH9YfVinY4qg9V1Vb3eXTXM41ohccQuEaE0cbOiUizXDA3h7oL5XolImwoWx3iUc="
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "quiz_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-ee1d1969-4efc-4ff6-aeaf-e2b0ab1e7ec9",
+                        "name": "grammar_history",
+                        "response": {
+                          "result": [
+                            "N-이에요/예요",
+                            "있다/없다",
+                            "V/A-아요/어요/해요",
+                            "V/A-았아요/었어요/했어요",
+                            "V/A-ㄹ/을 거예요",
+                            "V-ㄹ/을 수 있다/없다",
+                            "V려고 하다",
+                            "N처럼/N 같아요",
+                            "V/Aㄴ/는 것",
+                            "V/A-는 것 같아요",
+                            "N-보다"
+                          ]
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              }
+            ]
+          },
+          "creation_timestamp": 1771852610.351778
+        }
+      ],
+      "session_input": {
+        "app_name": "lang_agent",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1771852624.8806345
+    },
+    {
+      "eval_id": "case920211",
+      "conversation": [
+        {
+          "invocation_id": "e-93e4752a-0b10-45e8-9a2d-d7016b262f2b",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Hello"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Hello! I'm your Korean language tutor. I can help you with your Korean studies by creating personalized quizzes and providing feedback on your performance.\n\nWhat would you like to do today? We can:\n\n1.  **Create a Korean language quiz** on topics and grammar you've learned.\n2.  **Review your quiz answers** and get feedback on your progress."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {},
+          "creation_timestamp": 1771852216.94406
+        },
+        {
+          "invocation_id": "e-baf177fd-d386-4ea0-80df-95521d97c6ea",
+          "user_content": {
+            "parts": [
+              {
+                "text": "I'd like a quiz with 2 questions"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Here is your first question:"
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "root_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "adk-84dada9f-2576-4b78-ad93-f47178de69da",
+                        "args": {
+                          "agent_name": "quiz_agent"
+                        },
+                        "name": "transfer_to_agent"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "root_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-84dada9f-2576-4b78-ad93-f47178de69da",
+                        "name": "transfer_to_agent",
+                        "response": {
+                          "result": null
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              },
+              {
+                "author": "quiz_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "adk-d231eb8f-3a67-4a26-b861-24091c3418f8",
+                        "args": {},
+                        "name": "grammar_history"
+                      },
+                      "thought_signature": "CtcBAb4-9vtfbPdh_rGRXb9X93LzyM2_lrePiISQHSd526Sb7TCEVgbyIX0OOpkKIqhs5oyX-jxpk5gS7zIDII9iBi0Xm9lAiHpEO7h7pn9toJnkd2liMYuleCRkCHI-Us6espcK-sYgJfZtvfPxlab4xvuZ8G736M8Qhficyo00_Vdp3pSTuhiQ3WBum8WzVMPzVaTLGj0sLfhSHTGl0IqCSwEyGTYhqbUONfO16S3aS6HTYiIxqIP2fQJCGv1ZRJeZ6mjtvlJ-XOnBMPlkTNoUWs52vFNvGhs="
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "quiz_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-d231eb8f-3a67-4a26-b861-24091c3418f8",
+                        "name": "grammar_history",
+                        "response": {
+                          "result": [
+                            "N-이에요/예요",
+                            "있다/없다",
+                            "V/A-아요/어요/해요",
+                            "V/A-았아요/었어요/했어요",
+                            "V/A-ㄹ/을 거예요",
+                            "V-ㄹ/을 수 있다/없다",
+                            "V려고 하다",
+                            "N처럼/N 같아요",
+                            "V/Aㄴ/는 것",
+                            "V/A-는 것 같아요",
+                            "N-보다"
+                          ]
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              }
+            ]
+          },
+          "creation_timestamp": 1771852218.655913
+        }
+      ],
+      "session_input": {
+        "app_name": "lang_agent",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1771852300.9493487
+    }
+  ],
+  "creation_timestamp": 1771852297.9492288
+}

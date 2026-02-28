@@ -70,6 +70,7 @@ async def main():
     print("Note: Type 'exit' to end the conversation.\n", "======================\n")
     print("Agent: " + INTRO_MESSAGE + "\n")
 
+    # TODO: Resolve initial tool call warning
     # enter conversation loop:
     while True:
         user_input = input("You: ").strip()

@@ -1,6 +1,7 @@
 from google.adk.tools import ToolContext
 
-def vocab_search(term: str) -> list[dict[str,str]]:
+
+def vocab_search(term: str) -> list[dict[str, str]]:
     """
     Given a search term, returns learnt vocabulary which matches the search term most closely.
 
@@ -8,15 +9,16 @@ def vocab_search(term: str) -> list[dict[str,str]]:
         term (str): The vocabulary term to search for
 
     Returns:
-        list[dict]: list of vocabulary terms the user has previously learnt which most closely match the search. 
+        list[dict]: list of vocabulary terms the user has previously learnt which most closely match the search.
         These terms have an English translation ("eng" key) and a Korean translation ("kor" key).
     """
     return [
-                {"kor": "고양이", "eng": "cat", "type": "noun"},
-                {"kor": "공원", "eng": "park", "type": "noun"},
-                {"kor": "달리기를 하다", "eng": "to run", "type": "verb"},
-                {"kor": "걷다", "eng": "to walk", "type": "verb"},
-            ]
+        {"kor": "고양이", "eng": "cat", "type": "noun"},
+        {"kor": "공원", "eng": "park", "type": "noun"},
+        {"kor": "달리기를 하다", "eng": "to run", "type": "verb"},
+        {"kor": "걷다", "eng": "to walk", "type": "verb"},
+    ]
+
 
 def grammar_history() -> list[str]:
     """
@@ -25,9 +27,24 @@ def grammar_history() -> list[str]:
     Returns:
         list[str]: list of grammar rules the student has previously learnt.
     """
-    return ["N-이에요/예요", "있다/없다", "V/A-아요/어요/해요", "V/A-았아요/었어요/했어요", "V/A-ㄹ/을 거예요", "V-ㄹ/을 수 있다/없다", "V려고 하다", "N처럼/N 같아요", "V/Aㄴ/는 것", "V/A-는 것 같아요", "N-보다"]
+    return [
+        "N-이에요/예요",
+        "있다/없다",
+        "V/A-아요/어요/해요",
+        "V/A-았아요/었어요/했어요",
+        "V/A-ㄹ/을 거예요",
+        "V-ㄹ/을 수 있다/없다",
+        "V려고 하다",
+        "N처럼/N 같아요",
+        "V/Aㄴ/는 것",
+        "V/A-는 것 같아요",
+        "N-보다",
+    ]
 
-def save_answer(tool_context: ToolContext, q_num: int, question: str, answer: str) -> None:
+
+def save_answer(
+    tool_context: ToolContext, q_num: int, question: str, answer: str
+) -> None:
     """
     Saves the student's answer for later access.
 

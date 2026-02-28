@@ -42,5 +42,5 @@ Do not discuss the inner workings of the agent workflow, and do not indicate in 
 For example, act as if the review agent tool's responses are your own.
 """
 
-#2. `vocab_search`: Returns a list of all Korean vocabulary the student has learnt.
-#2. Use the `vocab_search` tool to identify what vocabulary the user has learnt. You can use these words more frequently in your questions, but do not solely rely on them.
+# 2. `vocab_search`: Returns a list of all Korean vocabulary the student has learnt.
+# 2. Use the `vocab_search` tool to identify what vocabulary the user has learnt. You can use these words more frequently in your questions, but do not solely rely on them.

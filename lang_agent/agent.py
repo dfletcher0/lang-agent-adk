@@ -3,7 +3,7 @@ from google.adk.tools.agent_tool import AgentTool
 
 from .prompts import QUIZ_AGENT_PROMPT
 from .sub_agents.review.agent import review_agent
-from .tools import grammar_history, save_answer, vocab_search
+from .tools import get_grammar_history, save_answer, vocab_search
 
 root_agent = LlmAgent(
     model="gemini-2.5-flash",
@@ -11,7 +11,7 @@ root_agent = LlmAgent(
     description="An agent responsible for generating a set of Korean language test questions.",
     instruction=QUIZ_AGENT_PROMPT,
     tools=[
-        grammar_history,
+        get_grammar_history,
         save_answer,
         AgentTool(review_agent),
     ],

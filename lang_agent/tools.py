@@ -1,4 +1,10 @@
+from asynctinydb import Query
 from google.adk.tools import ToolContext
+
+from lang_agent.database.db import create_db
+
+GRAMMAR_DB_PATH = "lang_agent/database/grammar.db"
+GRAMMAR_DB = create_db(GRAMMAR_DB_PATH)
 
 
 def vocab_search(term: str) -> list[dict[str, str]]:
@@ -20,26 +26,25 @@ def vocab_search(term: str) -> list[dict[str, str]]:
     ]
 
 
-def grammar_history() -> list[str]:
+async def get_grammar_history() -> list[str]:
     """
-    Returns a list of learnt grammar rules. These can be used to build questions the student will be able to answer.
+    Returns 10 grammar rules that the student has learnt, ranked by how long ago they were last tested (oldest to newest).
+    These can be used to build questions the student will be able to answer.
 
     Returns:
-        list[str]: list of grammar rules the student has previously learnt.
+        list[str]: list of 10 grammar rules the student has previously learnt.
     """
-    return [
-        "N-이에요/예요",
-        "있다/없다",
-        "V/A-아요/어요/해요",
-        "V/A-았아요/었어요/했어요",
-        "V/A-ㄹ/을 거예요",
-        "V-ㄹ/을 수 있다/없다",
-        "V려고 하다",
-        "N처럼/N 같아요",
-        "V/Aㄴ/는 것",
-        "V/A-는 것 같아요",
-        "N-보다",
-    ]
+    # TODO: dependency injection here for testability
+    grammar_table = GRAMMAR_DB.table("grammar")
+    all_results = await grammar_table.all()
+
+    ranked_results = sorted(
+        all_results, key=lambda x: x.get("last_tested", 0.0), reverse=True
+    )[:10]
+
+    print(ranked_results)
+
+    return [result.get("rule") for result in ranked_results]
 
 
 def save_answer(

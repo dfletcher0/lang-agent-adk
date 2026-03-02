@@ -1,12 +1,11 @@
 from google.adk.agents import LlmAgent
 from google.genai import types
 
-# from lang_agent.sub_agents.review.tools import get_answers, grade_answers
 from pydantic import BaseModel, Field
 
 from .prompts import REVIEW_AGENT_PROMPT
 
-# from lang_agent.sub_agents.review.tools import grammar_history, save_answer, vocab_search
+from .callbacks import before_review_agent_callback
 
 
 class TestFeedback(BaseModel):
@@ -27,7 +26,6 @@ class FeedbackOutput(BaseModel):
         description="Overall feedback on the student's performance across the entire test, including strengths and weaknesses. Max 200 words."
     )
 
-
 review_agent = LlmAgent(
     model="gemini-2.5-flash",
     name="review_agent",
@@ -38,9 +36,5 @@ review_agent = LlmAgent(
     ),
     output_schema=FeedbackOutput,
     output_key="test_feedback",
+    before_agent_callback=before_review_agent_callback,
 )
-
-# tools=[
-#     get_answers,
-#     grade_answers,
-# ]

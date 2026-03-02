@@ -36,22 +36,4 @@ Format example:
     "overall_feedback": "A max 200 word summary of the student's overall performance on the test."
 }
 <END_GRADES_JSON>
-
 """
-
-"""
-Follow the workflow below precisely, without deviation:
-
-1. Use the `get_answers` tool to get the list of question-answer pairs for the test.
-2. Grade the answers for accuracy, saving the marks against all answers using the `grade_answers` tool.
-3. Once all the answers have been marked, provide the student with their overall grade, and a summary of their strengths and weaknesses.
-4. If the student has any follow up questions, you can provide more detailed justification for your awarded scores.
-
-Grade each question-answer pair out of 1, where 1 is a perfect mark - the answer is a perfect translation with no issues.
-
-Partial marks can be awarded for sentences which match closely but have small grammar mistakes.
-Partial marks can also be awarded for sentences which have the correct meaning but are not completely natural.
-
-When submitting grades, submit them all at once, in the same format as the example below:
-
-\{1\: 0.8, 2\: 0.75, 3\: 1.0, 4\: 0\}"""

@@ -1,10 +1,7 @@
 from asynctinydb import Query
 from google.adk.tools import ToolContext
 
-from lang_agent.database.db import create_db
-
-GRAMMAR_DB_PATH = "lang_agent/database/grammar.db"
-GRAMMAR_DB = create_db(GRAMMAR_DB_PATH)
+from lang_agent.database.db import GRAMMAR_DB, create_db
 
 
 def vocab_search(term: str) -> list[dict[str, str]]:
@@ -26,7 +23,7 @@ def vocab_search(term: str) -> list[dict[str, str]]:
     ]
 
 
-async def get_grammar_history() -> list[str]:
+async def get_grammar_history(tool_context: ToolContext) -> list[str]:
     """
     Returns 10 grammar rules that the student has learnt, ranked by how long ago they were last tested (oldest to newest).
     These can be used to build questions the student will be able to answer.
@@ -39,16 +36,24 @@ async def get_grammar_history() -> list[str]:
     all_results = await grammar_table.all()
 
     ranked_results = sorted(
-        all_results, key=lambda x: x.get("last_tested", 0.0), reverse=True
+        all_results, key=lambda x: x.get("last_tested", 0.0)
     )[:10]
 
     print(ranked_results)
 
-    return [result.get("rule") for result in ranked_results]
+    ranked_results = [result.get("rule") for result in ranked_results]
+
+    # Set the state
+    tool_context.state["grammar_rules"] = ranked_results
+
+    return ranked_results
 
 
 def save_answer(
-    tool_context: ToolContext, q_num: int, question: str, answer: str
+    tool_context: ToolContext,
+    q_num: int,
+    question: str,
+    answer: str,
 ) -> None:
     """
     Saves the student's answer for later access.
@@ -57,6 +62,7 @@ def save_answer(
         q_num (int): The number of the question - e.g. 1 for the first question.
         question (str): The question that was generated for the student to answer.
         answer (str): The answer the student provided to the given question.
+        grammar_rule (str): The grammar rule being tested.
 
     Returns:
         None

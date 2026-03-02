@@ -22,6 +22,9 @@ def create_db(db_path: str) -> TinyDB:
         raise Exception(f"invalid path {db_path} specified for database.")
 
 
+GRAMMAR_DB_PATH = "lang_agent/database/grammar.db"
+GRAMMAR_DB = create_db(GRAMMAR_DB_PATH)
+
 # async def main(db: TinyDB):
 #     # answer = await db.search(Query().answer >= 42)
 #     grammar = db.table("grammar")
@@ -38,7 +41,7 @@ def create_db(db_path: str) -> TinyDB:
 # 2. Add initial documents (grammar rules) *
 # 3. Add tool method to read ranked grammar rules from DB (initially hardcode DB, then look to dependency inject via ToolContext) *
 # 4. Add tool method to update existing grammar rule most recently tested (epoch time int)
-# 5. Update agent prompt to prioritise grammar rules which haven't been tested recently
+# 5. Update agent prompt to prioritise grammar rules which haven't been tested recently *
 # 6. Add tool method to add grammar rules to DB
 # 6. Add to root_agent prompt to be able to teach new grammar rules (based on whats not in the db already) - then add them to the pool
 # https://www.youtube.com/watch?v=GDm_uH6VxPY

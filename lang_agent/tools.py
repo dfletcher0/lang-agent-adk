@@ -1,26 +1,25 @@
-from asynctinydb import Query
 from google.adk.tools import ToolContext
 
-from lang_agent.database.db import GRAMMAR_DB, create_db
+from lang_agent.database.db import GRAMMAR_DB
 
 
-def vocab_search(term: str) -> list[dict[str, str]]:
-    """
-    Given a search term, returns learnt vocabulary which matches the search term most closely.
+# def vocab_search(term: str) -> list[dict[str, str]]:
+#     """
+#     Given a search term, returns learnt vocabulary which matches the search term most closely.
 
-    Args:
-        term (str): The vocabulary term to search for
+#     Args:
+#         term (str): The vocabulary term to search for
 
-    Returns:
-        list[dict]: list of vocabulary terms the user has previously learnt which most closely match the search.
-        These terms have an English translation ("eng" key) and a Korean translation ("kor" key).
-    """
-    return [
-        {"kor": "고양이", "eng": "cat", "type": "noun"},
-        {"kor": "공원", "eng": "park", "type": "noun"},
-        {"kor": "달리기를 하다", "eng": "to run", "type": "verb"},
-        {"kor": "걷다", "eng": "to walk", "type": "verb"},
-    ]
+#     Returns:
+#         list[dict]: list of vocabulary terms the user has previously learnt which most closely match the search.
+#         These terms have an English translation ("eng" key) and a Korean translation ("kor" key).
+#     """
+#     return [
+#         {"kor": "고양이", "eng": "cat", "type": "noun"},
+#         {"kor": "공원", "eng": "park", "type": "noun"},
+#         {"kor": "달리기를 하다", "eng": "to run", "type": "verb"},
+#         {"kor": "걷다", "eng": "to walk", "type": "verb"},
+#     ]
 
 
 async def get_grammar_history(tool_context: ToolContext) -> list[str]:

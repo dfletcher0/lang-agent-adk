@@ -1,4 +1,5 @@
 import asyncio
+import logging
 import uuid
 
 from dotenv import load_dotenv
@@ -13,8 +14,9 @@ from google.genai.types import Content, Part
 
 from lang_agent.agent import root_agent
 
-# Set Gemini API key
+# Configure environment
 load_dotenv()
+LOG_LEVEL = logging.INFO
 
 # memory configuration
 SQLITE_DB_URL = ""
@@ -27,12 +29,22 @@ SESSION_FILE = f"{APP_NAME}/.session"
 USER_ID = "abc"
 
 
+def configure_logging(level: int = logging.INFO) -> None:
+    logging.basicConfig(
+        level=level,
+        format="%(asctime)s %(levelname)s %(name)s: %(message)s",
+    )
+
+
+logger = logging.getLogger(__name__)
+
+
 async def create_or_resume_session(session_service: BaseSessionService) -> Session:
     try:
         with open(SESSION_FILE, "r") as f:
             session_id = f.read().strip()
 
-        print(f"Resuming session: {session_id}")
+        logger.info(f"Resuming session: {session_id}")
         session = await session_service.get_session(
             app_name=APP_NAME, user_id=USER_ID, session_id=session_id
         )
@@ -40,7 +52,7 @@ async def create_or_resume_session(session_service: BaseSessionService) -> Sessi
         return session
 
     except FileNotFoundError:
-        print("No existing session found. Creating a new one.")
+        logger.info("No existing session found. Creating a new one.")
         session = await session_service.create_session(
             app_name=APP_NAME, user_id=USER_ID
         )
@@ -89,4 +101,5 @@ async def main():
 
 
 if __name__ == "__main__":
+    configure_logging(level=LOG_LEVEL)
     asyncio.run(main())

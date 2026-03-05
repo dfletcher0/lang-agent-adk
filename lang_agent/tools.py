@@ -1,44 +1,34 @@
+import logging
+
 from google.adk.tools import ToolContext
 
 from lang_agent.database.db import GRAMMAR_DB
 
-
-# def vocab_search(term: str) -> list[dict[str, str]]:
-#     """
-#     Given a search term, returns learnt vocabulary which matches the search term most closely.
-
-#     Args:
-#         term (str): The vocabulary term to search for
-
-#     Returns:
-#         list[dict]: list of vocabulary terms the user has previously learnt which most closely match the search.
-#         These terms have an English translation ("eng" key) and a Korean translation ("kor" key).
-#     """
-#     return [
-#         {"kor": "고양이", "eng": "cat", "type": "noun"},
-#         {"kor": "공원", "eng": "park", "type": "noun"},
-#         {"kor": "달리기를 하다", "eng": "to run", "type": "verb"},
-#         {"kor": "걷다", "eng": "to walk", "type": "verb"},
-#     ]
+logger = logging.getLogger(__name__)
 
 
-async def get_grammar_history(tool_context: ToolContext) -> list[str]:
+async def get_grammar_history(tool_context: ToolContext, num_rules: int) -> list[str]:
     """
     Returns 10 grammar rules that the student has learnt, ranked by how long ago they were last tested (oldest to newest).
     These can be used to build questions the student will be able to answer.
+
+    Args:
+        num_rules (int): The number of grammar rules to return.
 
     Returns:
         list[str]: list of 10 grammar rules the student has previously learnt.
     """
     # TODO: dependency injection here for testability
+    logger.debug(f"grammar rules returned: {num_rules}")
+
     grammar_table = GRAMMAR_DB.table("grammar")
     all_results = await grammar_table.all()
 
-    ranked_results = sorted(
-        all_results, key=lambda x: x.get("last_tested", 0.0)
-    )[:10]
+    ranked_results = sorted(all_results, key=lambda x: x.get("last_tested", 0.0))[
+        :num_rules
+    ]
 
-    print(ranked_results)
+    logger.debug(ranked_results)
 
     ranked_results = [result.get("rule") for result in ranked_results]
 
@@ -67,6 +57,8 @@ def save_answer(
         None
     """
     # TODO: Update to use session object
+    logger.debug(f"Writing answer to state: {q_num}: Q) {question}\n A) {answer}")
+
     answers = tool_context.state.get("answers", {})
     answers[q_num] = {"question": question, "answer": answer}
 

@@ -19,7 +19,7 @@ async def before_review_agent_callback(callback_context: CallbackContext) -> Non
     time_tested = time.time()
 
     for tested_rule in grammar_rules_tested:
-        logger.debug(f"Updating grammar rule: {Rule.rule}, last_tested: {time_tested}")
+        logger.debug(f"Updating grammar rule: {tested_rule}, last_tested: {time_tested}")
 
         Rule = Query()
         await grammar_table.update(

@@ -2,41 +2,46 @@ import logging
 import time
 
 from google.adk.tools import ToolContext
+from asynctinydb import TinyDB
+from typing import Callable
 
 from lang_agent.database.db import GRAMMAR_DB, LEADERBOARD_DB
 
 logger = logging.getLogger(__name__)
 
 
-async def get_grammar_history(tool_context: ToolContext, num_rules: int) -> list[str]:
-    """
-    Returns 10 grammar rules that the student has learnt, ranked by how long ago they were last tested (oldest to newest).
-    These can be used to build questions the student will be able to answer.
+def build_get_grammar_history_tool(db: TinyDB) -> Callable:
 
-    Args:
-        num_rules (int): The number of grammar rules to return.
+    async def get_grammar_history(tool_context: ToolContext, num_rules: int) -> list[str]:
+        """
+        Returns grammar rules that the student has learnt, ranked by how long ago they were last tested (oldest to newest).
+        These can be used to build questions the student will be able to answer.
 
-    Returns:
-        list[str]: list of 10 grammar rules the student has previously learnt.
-    """
-    # TODO: dependency injection here for testability
-    logger.debug(f"grammar rules returned: {num_rules}")
+        Args:
+            num_rules (int): The number of grammar rules to return.
 
-    grammar_table = GRAMMAR_DB.table("grammar")
-    all_results = await grammar_table.all()
+        Returns:
+            list[str]: list of grammar rules the student has previously learnt.
+        """
+        logger.debug(f"grammar rules returned: {num_rules}")
 
-    ranked_results = sorted(all_results, key=lambda x: x.get("last_tested", 0.0))[
-        :num_rules
-    ]
+        grammar_table = db.table("grammar")
+        all_results = await grammar_table.all()
 
-    logger.debug(ranked_results)
+        ranked_results = sorted(all_results, key=lambda x: x.get("last_tested", 0.0))[
+            :num_rules
+        ]
 
-    ranked_results = [result.get("rule") for result in ranked_results]
+        logger.debug(ranked_results)
 
-    # Set the state
-    tool_context.state["grammar_rules"] = ranked_results
+        ranked_results = [result.get("rule") for result in ranked_results]
 
-    return ranked_results
+        # Set the state
+        tool_context.state["grammar_rules"] = ranked_results
+
+        return ranked_results
+    
+    return get_grammar_history
 
 
 def save_answer(
@@ -66,44 +71,50 @@ def save_answer(
     # re-assign the state object so that changes are detected
     tool_context.state["answers"] = answers
 
+def build_get_leaderboard_tool(db: TinyDB) -> Callable:
 
-async def get_leaderboard() -> list[int]:
-    """
-    Gets the top 5 leaderboard results for the student's test results.
+    async def get_leaderboard() -> list[int]:
+        """
+        Gets the top 5 leaderboard results for the student's test results.
 
-    Returns:
-        list[int]: list of top 5 test results from the student
-    """
+        Returns:
+            list[int]: list of top 5 test results from the student
+        """
 
-    logger.debug(f"Leaderboard results requested")
+        logger.debug(f"Leaderboard results requested")
 
-    leaderboard_table = LEADERBOARD_DB.table("leaderboard")
-    all_results = await leaderboard_table.all()
+        leaderboard_table = db.table("leaderboard")
+        all_results = await leaderboard_table.all()
 
-    if len(all_results) > 0:
-        ranked_results = sorted(all_results, key=lambda x: x.get("score", 0.0))[:5]
+        if len(all_results) > 0:
+            ranked_results = sorted(all_results, key=lambda x: x.get("score", 0.0))[:5]
 
-        logger.debug(ranked_results)
+            logger.debug(ranked_results)
 
-        leaderboard_results = [result.get("score") for result in ranked_results]
-    else:
-        return []
+            leaderboard_results = [result.get("score") for result in ranked_results]
+        else:
+            return []
 
-    return leaderboard_results
+        return leaderboard_results
+    
+    return get_leaderboard
 
+def build_update_leaderboard_tool(db: TinyDB) -> Callable:
 
-async def update_leaderboard(score: int) -> None:
-    """
-    Adds the student's latest test result to the leaderboard.
+    async def update_leaderboard(score: int) -> None:
+        """
+        Adds the student's latest test result to the leaderboard.
 
-    Args:
-        score (int): The average score the student received across all questions.
+        Args:
+            score (int): The average score the student received across all questions.
 
-    Returns:
-        None
-    """
+        Returns:
+            None
+        """
 
-    logger.debug(f"Updating leaderboard results")
+        logger.debug(f"Updating leaderboard results")
 
-    leaderboard_table = LEADERBOARD_DB.table("leaderboard")
-    await leaderboard_table.insert({"time": time.time(), "score": score})
+        leaderboard_table = db.table("leaderboard")
+        await leaderboard_table.insert({"time": time.time(), "score": score})
+
+    return update_leaderboard

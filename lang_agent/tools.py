@@ -1,9 +1,9 @@
 import logging
 import time
-
-from google.adk.tools import ToolContext
-from asynctinydb import TinyDB
 from typing import Callable
+
+from asynctinydb import TinyDB
+from google.adk.tools import ToolContext
 
 from lang_agent.database.db import GRAMMAR_DB, LEADERBOARD_DB
 
@@ -12,7 +12,9 @@ logger = logging.getLogger(__name__)
 
 def build_get_grammar_history_tool(db: TinyDB) -> Callable:
 
-    async def get_grammar_history(tool_context: ToolContext, num_rules: int) -> list[str]:
+    async def get_grammar_history(
+        tool_context: ToolContext, num_rules: int
+    ) -> list[str]:
         """
         Returns grammar rules that the student has learnt, ranked by how long ago they were last tested (oldest to newest).
         These can be used to build questions the student will be able to answer.
@@ -40,7 +42,7 @@ def build_get_grammar_history_tool(db: TinyDB) -> Callable:
         tool_context.state["grammar_rules"] = ranked_results
 
         return ranked_results
-    
+
     return get_grammar_history
 
 
@@ -71,6 +73,7 @@ def save_answer(
     # re-assign the state object so that changes are detected
     tool_context.state["answers"] = answers
 
+
 def build_get_leaderboard_tool(db: TinyDB) -> Callable:
 
     async def get_leaderboard() -> list[int]:
@@ -96,8 +99,9 @@ def build_get_leaderboard_tool(db: TinyDB) -> Callable:
             return []
 
         return leaderboard_results
-    
+
     return get_leaderboard
+
 
 def build_update_leaderboard_tool(db: TinyDB) -> Callable:
 

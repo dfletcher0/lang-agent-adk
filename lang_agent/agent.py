@@ -4,7 +4,12 @@ from google.adk.tools.agent_tool import AgentTool
 from .database.db import GRAMMAR_DB, LEADERBOARD_DB
 from .prompts import QUIZ_AGENT_PROMPT
 from .sub_agents.review.agent import review_agent
-from .tools import build_get_grammar_history_tool, build_get_leaderboard_tool, save_answer, build_update_leaderboard_tool
+from .tools import (
+    build_get_grammar_history_tool,
+    build_get_leaderboard_tool,
+    build_update_leaderboard_tool,
+    save_answer,
+)
 
 root_agent = LlmAgent(
     model="gemini-2.5-flash",

@@ -1,5 +1,3 @@
-# Before calling agent: clear answer state!
-
 REVIEW_AGENT_PROMPT = """
 **Objective:**
 

@@ -3,7 +3,7 @@ from google.adk.tools.agent_tool import AgentTool
 
 from .prompts import QUIZ_AGENT_PROMPT
 from .sub_agents.review.agent import review_agent
-from .tools import get_grammar_history, save_answer
+from .tools import get_grammar_history, get_leaderboard, save_answer, update_leaderboard
 
 root_agent = LlmAgent(
     model="gemini-2.5-flash",
@@ -13,6 +13,8 @@ root_agent = LlmAgent(
     tools=[
         get_grammar_history,
         save_answer,
+        update_leaderboard,
+        get_leaderboard,
         AgentTool(review_agent),
     ],
 )

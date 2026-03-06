@@ -19,12 +19,25 @@ async def before_review_agent_callback(callback_context: CallbackContext) -> Non
     time_tested = time.time()
 
     for tested_rule in grammar_rules_tested:
-        logger.debug(f"Updating grammar rule: {tested_rule}, last_tested: {time_tested}")
+        logger.debug(
+            f"Updating grammar rule: {tested_rule}, last_tested: {time_tested}"
+        )
 
         Rule = Query()
         await grammar_table.update(
             ops.set("last_tested", time_tested), Rule.rule == tested_rule
         )
         await grammar_table.update(ops.add("times_tested", 1), Rule.rule == tested_rule)
+
+    return None
+
+
+async def after_review_agent_callback(callback_context: CallbackContext) -> None:
+    """
+    Clears the answer state ready for subsequent tests.
+    """
+    logger.debug(f"Clearing state: answers")
+
+    callback_context.state["answers"] = {}
 
     return None

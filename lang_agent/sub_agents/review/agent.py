@@ -2,7 +2,7 @@ from google.adk.agents import LlmAgent
 from google.genai import types
 from pydantic import BaseModel, Field
 
-from .callbacks import before_review_agent_callback
+from .callbacks import after_review_agent_callback, before_review_agent_callback
 from .prompts import REVIEW_AGENT_PROMPT
 
 
@@ -36,4 +36,5 @@ review_agent = LlmAgent(
     output_schema=FeedbackOutput,
     output_key="test_feedback",
     before_agent_callback=before_review_agent_callback,
+    after_agent_callback=after_review_agent_callback,
 )

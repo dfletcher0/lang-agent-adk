@@ -1,8 +1,9 @@
 import logging
+import time
 
 from google.adk.tools import ToolContext
 
-from lang_agent.database.db import GRAMMAR_DB
+from lang_agent.database.db import GRAMMAR_DB, LEADERBOARD_DB
 
 logger = logging.getLogger(__name__)
 
@@ -64,3 +65,45 @@ def save_answer(
 
     # re-assign the state object so that changes are detected
     tool_context.state["answers"] = answers
+
+
+async def get_leaderboard() -> list[int]:
+    """
+    Gets the top 5 leaderboard results for the student's test results.
+
+    Returns:
+        list[int]: list of top 5 test results from the student
+    """
+
+    logger.debug(f"Leaderboard results requested")
+
+    leaderboard_table = LEADERBOARD_DB.table("leaderboard")
+    all_results = await leaderboard_table.all()
+
+    if len(all_results) > 0:
+        ranked_results = sorted(all_results, key=lambda x: x.get("score", 0.0))[:5]
+
+        logger.debug(ranked_results)
+
+        leaderboard_results = [result.get("score") for result in ranked_results]
+    else:
+        return []
+
+    return leaderboard_results
+
+
+async def update_leaderboard(score: int) -> None:
+    """
+    Adds the student's latest test result to the leaderboard.
+
+    Args:
+        score (int): The average score the student received across all questions.
+
+    Returns:
+        None
+    """
+
+    logger.debug(f"Updating leaderboard results")
+
+    leaderboard_table = LEADERBOARD_DB.table("leaderboard")
+    await leaderboard_table.insert({"time": time.time(), "score": score})

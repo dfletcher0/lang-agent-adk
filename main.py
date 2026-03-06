@@ -16,7 +16,7 @@ from lang_agent.agent import root_agent
 
 # Configure environment
 load_dotenv()
-LOG_LEVEL = logging.INFO
+LOG_LEVEL = logging.DEBUG
 
 # memory configuration
 SQLITE_DB_URL = ""

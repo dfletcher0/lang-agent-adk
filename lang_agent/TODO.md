@@ -10,6 +10,11 @@
 # 3. Add tool method to read ranked grammar rules from DB (initially hardcode DB, then look to dependency inject via ToolContext) *
 # 4. Add tool method to update existing grammar rule most recently tested (epoch time int) *
 # 5. Update agent prompt to prioritise grammar rules which haven't been tested recently *
-# 6. Update get_grammar_history to take an int number of questions
+# 6. Update get_grammar_history to take an int number of questions *
 # 7. Add tool method to add grammar rules to DB
 # 8. Add to root_agent prompt to be able to teach new grammar rules (based on whats not in the db already) - then add them to the pool
+# 9. Add SQLite persistent DB session handling
+# 10. Add multiple users (different grammar dbs), with user isolation
+# 11. Add dependency injection for user info to tools
+# 12. Add unit tests for tools
+# 13. Add agent integration tests

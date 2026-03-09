@@ -90,7 +90,9 @@ def build_get_leaderboard_tool(db: TinyDB) -> Callable:
         all_results = await leaderboard_table.all()
 
         if len(all_results) > 0:
-            ranked_results = sorted(all_results, key=lambda x: x.get("score", 0.0))[:5]
+            ranked_results = sorted(
+                all_results, key=lambda x: x.get("score", 0.0), reverse=True
+            )[:5]
 
             logger.debug(ranked_results)
 
